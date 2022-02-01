@@ -1,0 +1,27 @@
+<div style="display: flex">
+  <div style="width:80%">
+    <ejs-schedule #scheduleObj width="auto" cssClass="timeline-resource" height="800px" [selectedDate]="selectedDate"
+      [group]="group" [eventSettings]="eventSettings" locale="en">
+      <e-resources>
+        <e-resource field="ProjectId" title="Choose Project" [dataSource]="projectDataSource"
+          [allowMultiple]="allowMultiple" name="Projects" textField="text" idField="id" colorField="color">
+        </e-resource>
+        <e-resource field="TaskId" title="Category" [dataSource]="categoryDataSource" [allowMultiple]="allowMultiple"
+          name="Categories" textField="text" idField="id" groupIDField="groupId" colorField="color">
+        </e-resource>
+      </e-resources>
+      <e-views>
+        <e-view option="TimelineDay"></e-view>
+        <e-view option="TimelineWeek"></e-view>
+        <e-view option="TimelineWorkWeek"></e-view>
+        <e-view option="TimelineMonth"></e-view>
+        <e-view option="Agenda"></e-view>
+      </e-views>
+    </ejs-schedule>
+  </div>
+  <div style="width:20%">
+    <ejs-dropdownlist id='schedule_locale' #localeDropdown [dataSource]='localeData'
+      (change)='onLocaleDropDownChange($event)' [value]='dropDownValue' [fields]='fields'>
+    </ejs-dropdownlist>
+  </div>
+</div>
